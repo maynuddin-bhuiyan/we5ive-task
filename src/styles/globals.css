@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styling */
+* {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #F4F8FF ;  
+  font-family: "Manrope", sans-serif;
+}
+
+/* Fonts family class */
+.nunito-sans{
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+}
+
+.main-btn{
+  @apply bg-[#8F71E1] text-center text-white
+}
+
+.outline-button{
+  @apply bg-transparent border border-[#7E53D4] rounded-lg
+}
