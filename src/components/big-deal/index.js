@@ -18,8 +18,8 @@ export default function BigDeal() {
       <div className="container">
         <div className="flex justify-between items-center mb-3 lg:mb-5">
           <div>
-            <p className="text-xl text-[#7E53D4]">SUMMER</p>
-            <h3 className="text-3xl text-[#1D1D1D] font-bold">Big Deal</h3>
+            <p className="lg:text-xl text-[#7E53D4]">SUMMER</p>
+            <h3 className="text-2xl lg:text-3xl text-[#1D1D1D] font-bold">Big Deal</h3>
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -117,7 +117,7 @@ export default function BigDeal() {
           
         </Swiper>
 
-        <div className="mt-5">
+        <div className="hidden lg:block mt-5">
         <Swiper
           spaceBetween={50}
           slidesPerView={4}

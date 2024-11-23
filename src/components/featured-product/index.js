@@ -19,8 +19,8 @@ export default function FeaturedProduct() {
       <div className="container">
         <div className="flex justify-between items-center mb-3 lg:mb-5">
           <div>
-            <p className="text-xl text-[#7E53D4]">FEATURED PRODUCT</p>
-            <h3 className="text-3xl text-[#1D1D1D] font-bold">New Arrivals</h3>
+            <p className="lg:text-xl text-[#7E53D4]">FEATURED PRODUCT</p>
+            <h3 className="text-2xl lg:text-3xl text-[#1D1D1D] font-bold">New Arrivals</h3>
           </div>
           <div className="flex items-center gap-3">
             <button

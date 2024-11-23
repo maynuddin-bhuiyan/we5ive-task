@@ -5,8 +5,9 @@ export default function ProductCard({ data }) {
   const router = useRouter();
 
   return (
-    <div onClick={() => router.push(`/product/${data?.slug}`)} className="bg-white rounded-2xl p-2 w-[300px]">
-      <div className="bg-[#F6F5FD] rounded-lg relative w-[286px] h-[280px] overflow-hidden">
+    <div onClick={() => router.push(`/product/${data?.slug}`)} 
+    className="bg-white rounded-2xl p-2 w-full md:w-[300px]">
+      <div className="bg-[#F6F5FD] rounded-lg relative md:w-[286px] h-[320px] md:h-[280px] overflow-hidden">
         <Image
           src={data?.image}
           alt=""

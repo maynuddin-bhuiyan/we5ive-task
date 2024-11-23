@@ -123,13 +123,13 @@ export default function HeroSec() {
   return (
     <div>
       <div className="bg-[url('/imgs/hero-banner.png')] min-h-[500px] bg-cover bg-center flex flex-col items-center justify-center">
-        <h1 className="text-5xl text-white font-bold">
+        <h1 className="text-2xl lg:text-5xl text-white font-bold">
           Elevate Your Everyday Style
         </h1>
-        <p className="text-xl text-[#F5F3FF] mt-2">
+        <p className="text-sm lg:text-xl text-[#F5F3FF] mt-1 lg:mt-2">
           Discover the Latest Trends in Sustainable Fashion
         </p>
-        <div className="flex items-center mt-4">
+        <div className="flex items-center mt-2 lg:mt-4">
           <button className="main-btn w-[150px] rounded-[28px] py-2 text-xl">
             Shop Now
           </button>

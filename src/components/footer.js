@@ -1,27 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer() {
-  const footerLink = [
-    {
-      id: 1,
-      title: "Contact Us",
-      text: "support@we5ive.com",
-      link: "support@we5ive.com",
-    },
-    {
-      id: 2,
-      title: "About Us",
-      text: "Contact Us",
-      link: "",
-    },
-    {
-      id: 3,
-      title: "",
-      text: "",
-      link: "",
-    },
-  ];
+export default function Footer() {  
   return (
     <div>
       <div className="bg-[#1D1D1D] py-10 lg:py-20">
@@ -56,21 +36,21 @@ export default function Footer() {
                     </clipPath>
                   </defs>
                 </svg>
-                <span className="text-white">
-                  We<span>5</span>ive
+                <span className="text-white text-3xl font-bold">
+                  We<span className="text-[#7436F1]">5</span>ive
                 </span>
               </Link>
-              <p className="text-white max-w-[410px] mt-5">
+              <p className="text-white max-w-[410px] mt-5 mb-5 lg:mb-0 text-sm lg:text-base">
                 Saepe quo suscipit vitae quia. Repudiandae nobis quis.
                 Laboriosam unde quae qui quasi mollitia tenetur. Dicta explicabo
                 est consectetur maxime quos fugit velit assumenda est.
               </p>
             </div>
             <div className="text-white">
-              <h3 className="text-2xl font-bold mb-1">
+              <h3 className="text-xl lg:text-2xl font-bold mb-1">
                 Sign Up For Our Newsletter!
               </h3>
-              <p>
+              <p className="text-sm lg:text-base">
                 Get notified about updates and be the first to get early access
                 to new Podcast episodes.
               </p>
@@ -87,14 +67,14 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 text-white mt-5 lg:pt-14">
+          <div className="grid grid-cols-1 lg:grid-cols-4 text-white mt-5 lg:pt-14">
             <div>
               <h3 className="font-bold">Contact Us</h3>
               <Link href={"#"} className="text-sm">
                 support@we5ive.com
               </Link>
             </div>
-            <div>
+            <div className="my-4 lg:my-0">
               <Link href={"#"} className="block">
                 About Us
               </Link>
@@ -110,7 +90,7 @@ export default function Footer() {
                 Terms & Condition
               </Link>
             </div>
-            <div>
+            <div className="mt-4 lg:mt-0">
               <h3 className="font-bold">Social Link</h3>
               <div className="flex items-center gap-3 mt-2">
                 <Image width={24} height={24} src={"/imgs/fb.png"} alt="icon" />
