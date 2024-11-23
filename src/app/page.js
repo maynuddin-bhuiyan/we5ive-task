@@ -1,13 +1,17 @@
+import BigDeal from "@/components/big-deal";
 import CustomerOffer from "@/components/customer-offer";
+import FeaturedProduct from "@/components/featured-product";
+import FeaturedSlider from "@/components/featured-slider";
 import HeroSec from "@/components/herosec";
-import ProductCard from "@/components/reuseable/product-card";
 
 export default function Home() {
   return (
     <>
       <HeroSec />
-      <ProductCard />
+      <FeaturedProduct />
       <CustomerOffer />
+      <FeaturedSlider />
+      <BigDeal />
     </>
   );
 }

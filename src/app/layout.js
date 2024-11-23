@@ -1,6 +1,10 @@
 import Navbar from "@/components/navbar";
 import "../styles/globals.css";
 import Footer from "@/components/footer";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation"; // Optional 
+import "swiper/css/pagination"; // Optional 
 
 export const metadata = {
   title: "Create Next App",

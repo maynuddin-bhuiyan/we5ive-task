@@ -32,8 +32,12 @@ export default function Navbar() {
   return (
     <>
       <div
-        className={`text-white transition-all duration-300 
-     `}
+        className={`text-white transition-all duration-300      
+          ${
+            isScroll || isMenuOpen
+              ? "fixed top-0 left-0 w-full h-16 z-50 shadow-gray-700 bg-[#fefefecc] shadow-md transform translate-y-0"
+              : "relative transform translate-y-0"
+          }`}
       >
         <div className="container">
           <div className="flex justify-between items-center py-4 w-full">

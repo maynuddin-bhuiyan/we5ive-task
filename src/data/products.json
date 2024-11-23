@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Indian Sharee",
+    "image": "/imgs/indian-sharee.png",
+    "price": 2300
+  },
+  {
+    "id": 2,
+    "name": "Hoodie",
+    "image": "/imgs/hoodie.png",
+    "price": 3200
+  },
+  {
+    "id": 3,
+    "name": "Plazu",
+    "image": "/imgs/plazu.png",
+    "price": 1800
+  },
+  {
+    "id": 4,
+    "name": "Jacket",
+    "image": "/imgs/jacket.png",
+    "price": 5500
+  },
+  {
+    "id": 5,
+    "name": "Indian Sharee",
+    "image": "/imgs/indian-sharee.png",
+    "price": 2300
+  },
+  {
+    "id": 6,
+    "name": "Hoodie",
+    "image": "/imgs/hoodie.png",
+    "price": 3200
+  },
+  {
+    "id": 7,
+    "name": "Short Dress",
+    "image": "/imgs/short-dress.png",
+    "price": 3200,
+    "discount": 40,
+    "product_review" : 50
+  },
+  {
+    "id": 8,
+    "name": "Half Sleeve Shirt",
+    "image": "/imgs/half-shirt.png",
+    "price": 3200,
+    "discount": 40,
+    "product_review" : 50
+  },
+  {
+    "id": 9,
+    "name": "Woman wearing sari",
+    "image": "/imgs/woman-sari.png",
+    "price": 3200,
+    "discount": 40,
+    "product_review" : 50
+  },
+  {
+    "id": 10,
+    "name": "Checkered shirt",
+    "image": "/imgs/checkered-shirt.png",
+    "price": 3200,
+    "discount": 40,
+    "product_review" : 50
+  },
+  {
+    "id": 11,
+    "name": "Half Sleeve Shirt",
+    "image": "/imgs/half-shirt.png",
+    "price": 3200,
+    "discount": 40,
+    "product_review" : 50
+  },
+  {
+    "id": 12,
+    "name": "Woman wearing sari",
+    "image": "/imgs/woman-sari.png",
+    "price": 3200,
+    "discount": 40,
+    "product_review" : 50
+  }
+]
