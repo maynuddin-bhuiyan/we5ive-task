@@ -20,7 +20,7 @@ export default function FeaturedSlider() {
               <div className="bg-[#F6F5FD] rounded-lg w-full h-full overflow-hidden">
                 <Image
                   src={"/imgs/man.png"}
-                  alt=""
+                  alt="man image"
                   width={0}
                   height={0}
                   layout="responsive"
@@ -38,7 +38,7 @@ export default function FeaturedSlider() {
               <div className="bg-[#F6F5FD] rounded-lg w-full h-[500px] overflow-hidden">
                 <Image
                   src={"/imgs/woman.png"}
-                  alt=""
+                  alt="woman img"
                   width={0}
                   height={0}
                   layout="responsive"

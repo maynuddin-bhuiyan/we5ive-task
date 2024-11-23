@@ -3,37 +3,43 @@
     "id": 1,
     "name": "Indian Sharee",
     "image": "/imgs/indian-sharee.png",
-    "price": 2300
+    "price": 2300,
+    "slug": "indian-sharee"
   },
   {
     "id": 2,
     "name": "Hoodie",
     "image": "/imgs/hoodie.png",
-    "price": 3200
+    "price": 3200,
+    "slug": "hoodie"
   },
   {
     "id": 3,
     "name": "Plazu",
     "image": "/imgs/plazu.png",
-    "price": 1800
+    "price": 1800,
+    "slug": "plazu"
   },
   {
     "id": 4,
     "name": "Jacket",
     "image": "/imgs/jacket.png",
-    "price": 5500
+    "price": 5500,
+    "slug": "jacket"
   },
   {
     "id": 5,
     "name": "Indian Sharee",
     "image": "/imgs/indian-sharee.png",
-    "price": 2300
+    "price": 2300,
+    "slug": "indian-sharee"
   },
   {
     "id": 6,
     "name": "Hoodie",
     "image": "/imgs/hoodie.png",
-    "price": 3200
+    "price": 3200,
+    "slug": "hoodie"
   },
   {
     "id": 7,
@@ -41,7 +47,8 @@
     "image": "/imgs/short-dress.png",
     "price": 3200,
     "discount": 40,
-    "product_review" : 50
+    "product_review": 50,
+    "slug": "short-dress"
   },
   {
     "id": 8,
@@ -49,7 +56,8 @@
     "image": "/imgs/half-shirt.png",
     "price": 3200,
     "discount": 40,
-    "product_review" : 50
+    "product_review": 50,
+    "slug": "half-sleeve-shirt"
   },
   {
     "id": 9,
@@ -57,7 +65,8 @@
     "image": "/imgs/woman-sari.png",
     "price": 3200,
     "discount": 40,
-    "product_review" : 50
+    "product_review": 50,
+    "slug": "woman-wearing-sari"
   },
   {
     "id": 10,
@@ -65,7 +74,8 @@
     "image": "/imgs/checkered-shirt.png",
     "price": 3200,
     "discount": 40,
-    "product_review" : 50
+    "product_review": 50,
+    "slug": "checkered-shirt"
   },
   {
     "id": 11,
@@ -73,7 +83,8 @@
     "image": "/imgs/half-shirt.png",
     "price": 3200,
     "discount": 40,
-    "product_review" : 50
+    "product_review": 50,
+    "slug": "half-sleeve-shirt"
   },
   {
     "id": 12,
@@ -81,6 +92,7 @@
     "image": "/imgs/woman-sari.png",
     "price": 3200,
     "discount": 40,
-    "product_review" : 50
+    "product_review": 50,
+    "slug": "woman-wearing-sari"
   }
 ]

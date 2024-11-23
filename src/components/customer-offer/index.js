@@ -5,7 +5,7 @@ export default function CustomerOffer() {
     <div className="container">
       <div className="bg-white grid grid-cols-1 lg:grid-cols-3 min-h-[450px] items-center xl:pl-16 xl:pr-20">
         <div className="col-span-2">
-          <p className="text-[#6F42C1] text-2xl">Big Deal</p>
+          <p className="text-[#6F42C1] text-2xl pacifico-cursive mb-2">Big Deal</p>
           <h2 className="text-5xl font-semibold">
             {" "}
             <span className="text-[#6F42C1]">30%</span> Off for New Customers
@@ -43,7 +43,7 @@ export default function CustomerOffer() {
           <div className="relative w-full h-[400px] overflow-hidden">
             <Image
               src={"/imgs/image.png"}
-              alt=""
+              alt="image"
               width={0}
               height={0}
               layout="fill"

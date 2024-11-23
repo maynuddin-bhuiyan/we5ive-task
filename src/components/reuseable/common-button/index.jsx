@@ -1,6 +1,6 @@
 export default function CommonButton() {
   return (
-    <div className="flex items-center mt-4">
+    <div className="flex items-center mt-2 lg:mt-4">
       <button className="main-btn w-[150px] rounded-[28px] py-2 text-xl">
         Shop Now
       </button>

@@ -10,7 +10,7 @@ export default function ProductCard({ data }) {
       <div className="bg-[#F6F5FD] rounded-lg relative md:w-[286px] h-[320px] md:h-[280px] overflow-hidden">
         <Image
           src={data?.image}
-          alt=""
+          alt="product-img"
           width={0}
           height={0}
           layout="fill"
