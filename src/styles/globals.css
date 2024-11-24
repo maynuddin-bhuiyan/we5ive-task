@@ -38,3 +38,19 @@ body {
 .outline-button{
   @apply bg-transparent border border-[#7E53D4] rounded-lg
 }
+
+/* swiper-custom.css */
+.swiper-pagination-bullet {
+  width: 15px !important; /* Default dot size */
+  height: 10px !important;
+  background: #d2cbfa !important; /* Inactive dot color */
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px !important; /* Active dot size */
+  height: 10px !important; /* Active dot size */
+  background: #7a5cfa !important; /* Active dot color */
+  border-radius: 12px !important; /* Elliptical shape for active dots */
+}

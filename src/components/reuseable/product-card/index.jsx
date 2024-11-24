@@ -1,13 +1,44 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function ProductCard({ data }) {
   const router = useRouter();
 
+  const handleAddToCart = () => {
+    try {      
+      const setLocalStorageCart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const cartIndex = setLocalStorageCart.findIndex(
+        (item) => item.slug === data.slug
+      );
+        if (cartIndex >= 0) {
+        //Update the quantity 
+        setLocalStorageCart[cartIndex].quantity += 1;
+      } else if (cartIndex === -1) {
+        //Add the product to the cart
+        setLocalStorageCart.push({ ...data, quantity: 1 });
+      } else {
+        //handle it gracefully
+        toast.error(error.message || "Failed to add product to cart.");
+      }
+  
+      // Save the updated cart data to localStorage
+      localStorage.setItem("cart", JSON.stringify(setLocalStorageCart));
+  
+      // Show a success toast
+      toast.success("Product added to cart!");
+    } catch (error) {
+      // Show an error
+      toast.error(error.message || "Failed to add product to cart.");
+    }
+  };
+
   return (
-    <div onClick={() => router.push(`/product/${data?.slug}`)} 
-    className="bg-white rounded-2xl p-2 w-full md:w-[300px]">
-      <div className="bg-[#F6F5FD] rounded-lg relative md:w-[286px] h-[320px] md:h-[280px] overflow-hidden">
+    <div
+      onClick={() => router.push(`/product/${data?.slug}`)}
+      className="bg-white rounded-2xl p-2 w-full lg:w-[295px] md:w-[300px] cursor-pointer"
+    >
+      <div className="bg-[#F6F5FD] rounded-lg relative md:w-[280px] h-[320px] md:h-[280px] overflow-hidden">
         <Image
           src={data?.image}
           alt="product-img"
@@ -101,7 +132,13 @@ export default function ProductCard({ data }) {
           BDT {data?.price}
         </h3>
       </div>
-      <button className="outline-button font-semibold text-center w-full py-2 mt-3">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleAddToCart();
+        }}
+        className="outline-button font-semibold text-center w-full py-2 mt-3"
+      >
         Add to Cart
       </button>
     </div>

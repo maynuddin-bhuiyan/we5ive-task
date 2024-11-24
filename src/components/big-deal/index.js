@@ -107,6 +107,10 @@ export default function BigDeal() {
               slidesPerView: 3, // Show 4 slides for desktop
               spaceBetween: 50,
             },
+            1240: {
+              slidesPerView: 4, // Show 4 slides for desktop
+              spaceBetween: 50,
+            },
           }}
         >
           {productsWithSlugs?.slice(6, 12)?.map((product, index) => (
@@ -144,6 +148,10 @@ export default function BigDeal() {
             // when window width is >= 1024px
             1024: {
               slidesPerView: 3, // Show 4 slides for desktop
+              spaceBetween: 50,
+            },
+            1240: {
+              slidesPerView: 4, // Show 4 slides for desktop
               spaceBetween: 50,
             },
           }}

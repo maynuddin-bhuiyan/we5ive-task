@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import CommonButton from "../reuseable/common-button";
 import Image from "next/image";
+import { Pagination } from "swiper/modules";
 
 export default function FeaturedSlider() {
   return (
@@ -10,6 +11,10 @@ export default function FeaturedSlider() {
         <Swiper
           spaceBetween={50}
           slidesPerView={1}
+          pagination={{
+            clickable: true, // Enables clickable dots
+          }}
+          modules={[Pagination]}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => {
             // console.log(swiper);

@@ -1,7 +1,10 @@
+"use client"
 import { useState } from "react";
 import ReviewCard from "../reuseable/review-card";
 
+
 export default function DetailTabs() {
+
   const [activeTab, setActiveTab] = useState("Review & Rating");
   const sortOptions = ["Newest", "Latest", "Oldest"];
   const tabs = ["Details", "Review & Rating", "Discussion"];
@@ -44,14 +47,15 @@ export default function DetailTabs() {
   const totalReviews = ratings.reduce((sum, rating) => sum + rating.value, 0);
 
   return (
-    <div className="container">
+ <div className="bg-white py-5 mt-5 lg:mt-0">
+     <div className="container">
       {/* Tabs Navigation */}
-      <div className="flex justify-start gap-16">
+      <div className="flex justify-start gap-5 lg:gap-16">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`text-xl font-semibold py-2 text-center ${
+            className={`lg:text-xl font-semibold py-2 text-center ${
               activeTab === tab
                 ? " text-[#7E53D4] font-bold"
                 : " text-[#747474]"
@@ -129,9 +133,9 @@ export default function DetailTabs() {
           </div>
         )}
         {activeTab === "Review & Rating" && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-5 mt-7">
-            <div className="col-span-2">
-              <div className="mb-2 lg:mb-5">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-5 mt-7 ">
+            <div className="col-span-2  lg:order-1 order-2 mt-4 lg:mt-0">
+              <div className="mb-5 lg:mb-5">
                 <select
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
@@ -153,7 +157,7 @@ export default function DetailTabs() {
                 <ReviewCard />
               </div>
             </div>
-            <div>
+            <div className="lg:order-2 order-1">
               <h2 className="font-semibold text-black">
                 Product Review{" "}
                 <span className="text-[#7E53D4]">121 reviews</span>
@@ -253,5 +257,6 @@ export default function DetailTabs() {
         )}
       </div>
     </div>
+ </div>
   );
 }

@@ -108,6 +108,10 @@ export default function FeaturedProduct() {
               slidesPerView: 3, // Show 4 slides for desktop
               spaceBetween: 50,
             },
+            1240: {
+              slidesPerView: 4, // Show 4 slides for desktop
+              spaceBetween: 50,
+            },
           }}
         >
           {productsWithSlugs?.slice(0, 6)?.map((product, index) => (

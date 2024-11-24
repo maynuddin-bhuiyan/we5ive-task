@@ -1,27 +1,181 @@
-import { useState } from "react";
+"use client";
+import { useRef, useState } from "react";
+// import Swiper from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
+import { toast } from "react-toastify";
+
+const detailImages = [
+  "/imgs/details-img-4.png",
+  "/imgs/details-img-3.png",
+  "/imgs/details-img-2.png",
+  "/imgs/details-img-1.png",
+  "/imgs/details-img-5.png",
+];
 
 export default function DetailHero({ product }) {
-  console.log("product id hero:", product);
+  // console.log("product id hero:", product);
   const [selectedSize, setSelectedSize] = useState("S");
   const [selectedColor, setSelectedColor] = useState("Off White");
   const [quantity, setQuantity] = useState(1);
 
+  const swiperRef = useRef(null);
+
+  const totalImg = detailImages?.length;
+  // console.log("totalImg: " ,totalImg)
+
+  const handleAddToCart = () => {
+    try {
+      const setLocalStorageCart = JSON.parse(
+        localStorage.getItem("cart") || "[]"
+      );
+      const cartIndex = setLocalStorageCart.findIndex(
+        (item) => item.slug === data.slug
+      );
+      if (cartIndex >= 0) {
+        //Update the quantity
+        setLocalStorageCart[cartIndex].quantity += 1;
+      } else if (cartIndex === -1) {
+        //Add the product to the cart
+        setLocalStorageCart.push({ ...data, quantity: 1 });
+      } else {
+        //handle it gracefully
+        toast.error(error.message || "Failed to add product to cart.");
+      }
+
+      // Save the updated cart data to localStorage
+      localStorage.setItem("cart", JSON.stringify(setLocalStorageCart));
+
+      // Show a success toast
+      toast.success("Product added to cart!");
+    } catch (error) {
+      // Show an error
+      toast.error(error.message || "Failed to add product to cart.");
+    }
+  };
+
   const sizes = ["S", "M", "L", "XL"];
   const colors = ["Off White", "Black"];
   return (
-    <div className="relative my-10">
+    <div className="relative lg:my-10 mt-2">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div></div>
-          <div>
-            <button className="bg-[#2F1C59] font-semibold text-white px-5 lg:px-10 py-2 rounded-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10">
+          <div className="relative">
+            <Swiper
+              loop={true}
+              slidesPerView={1}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper; // Assign Swiper instance to ref
+                // console.log(swiper);
+              }}
+            >
+              <div className="absolute top-1/2 z-50 w-full">
+                <div className="flex items-center justify-between gap-3">
+                  <button
+                    onClick={() => swiperRef.current?.slidePrev()}
+                    className="w-8 h-8 rounded-full flex items-center justify-center border border-[#7E53D4]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                    >
+                      <path
+                        d="M4.00002 12.5002H20"
+                        stroke="#7E53D4"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M8.99966 7.5C8.99966 7.5 3.99976 11.1824 3.99976 12.5C3.99976 13.8176 8.99976 17.5 8.99976 17.5"
+                        stroke="#7E53D4"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => swiperRef.current?.slideNext()}
+                    className="w-8 h-8 rounded-full flex items-center justify-center border border-[#7E53D4]"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      fill="none"
+                    >
+                      <path
+                        d="M20 12.4998H4"
+                        stroke="#7E53D4"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M15.0003 17.5C15.0003 17.5 20.0002 13.8176 20.0002 12.5C20.0002 11.1824 15.0002 7.5 15.0002 7.5"
+                        stroke="#7E53D4"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              {detailImages?.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <div className="relative bg-[#F6F5FD] md:w-full h-[320px] md:h-[500px]">
+                    <Image
+                      width={0}
+                      height={0}
+                      layout="fill"
+                      objectFit="cover"
+                      src={image}
+                      alt={`Slide ${index + 1}`}
+                    />
+                  </div>
+                  <p className="block lg:hidden absolute bottom-3 right-1 px-4 py-1 rounded-2xl bg-[#E0DCF8] text-black text-sm">
+                    {index + 1}/{totalImg}
+                  </p>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="hidden lg:block">
+              {/* Thumbnail Swiper */}
+              <Swiper slidesPerView={4} spaceBetween={10}>
+                {detailImages?.map((image, index) => (
+                  <SwiperSlide key={index} className="mt-5">
+                    <div className="bg-[#ECE9FE] relative w-[130px] h-[130px] rounded-2xl">
+                      <Image
+                        src={image}
+                        width={0}
+                        height={0}
+                        layout="fill"
+                        objectFit="cover"
+                        className="p-1"
+                        alt={`Thumbnail ${index + 1}`}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+          <div className="mt-3 lg:mt-0">
+            <button className="bg-[#2F1C59] font-semibold text-white px-8 lg:px-10 py-2 rounded-lg">
               New Arrival
             </button>
-            <h3 className="text-4xl text-[#1D1D1D] font-semibold my-2 lg:my-3">
+            <h3 className="text-xl lg:text-4xl text-[#1D1D1D] font-semibold my-3">
               {product?.name}
             </h3>
 
-            <div className="flex lg:w-[300px] justify-between items-center">
+            <div className="flex lg:w-[300px] lg:justify-between items-center gap-4 lg:gap-0">
               <div className="flex gap-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +241,7 @@ export default function DetailHero({ product }) {
               </div>
               <span className="text-[#7E53D4]">121 reviews</span>
             </div>
-            <h4 className="text-[#1D1D1D] text-3xl font-bold mt-5 border-b border-[#CECECE] border-dotted pb-3">
+            <h4 className="text-[#1D1D1D] text-2xl lg:text-3xl font-bold mt-3 lg:mt-5 border-b border-[#CECECE] border-dotted pb-3">
               BDT {product?.price}
             </h4>
 
@@ -113,7 +267,7 @@ export default function DetailHero({ product }) {
                       ))}
                     </div>
                   </div>
-                  <div>
+                  <div className="hidden lg:block">
                     <h2 className="text-xl font-semibold">Available Color</h2>
                     <div className="flex gap-6 mt-2">
                       {colors.map((color) => (
@@ -197,11 +351,17 @@ export default function DetailHero({ product }) {
               </div>
             </div>
 
-            <div className="flex justify-between items-center gap-3">
-              <button className="main-btn w-1/2 px-5 py-[10px] text-sm font-semibold rounded-lg">
+            <div className="lg:flex justify-between items-center gap-3">
+              <button className="main-btn w-full lg:w-1/2 px-5 py-[10px] text-sm font-semibold rounded-lg">
                 Buy Now
               </button>
-              <button className="outline-button w-1/2 font-semibold text-center py-2">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleAddToCart();
+                }}
+                className="outline-button w-full lg:w-1/2 font-semibold mt-5 lg:mt-0 text-center py-2"
+              >
                 Add to Cart
               </button>
             </div>
@@ -209,9 +369,9 @@ export default function DetailHero({ product }) {
         </div>
       </div>
 
-      <div className="absolute top-[160px] right-0 bg-[#581FC1] text-center py-1 rounded-l-2xl px-3">
+      <div className="hidden lg:block absolute top-[160px] right-0 bg-[#581FC1] text-center py-1 rounded-l-2xl px-3">
         <svg
-        className="m-auto"
+          className="m-auto"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -221,7 +381,7 @@ export default function DetailHero({ product }) {
           <path
             d="M5.16402 22.6925L3.55927 13.1197C3.31663 11.6724 3.19532 10.9487 3.5838 10.4743C3.9723 10 4.68631 10 6.11435 10H25.886C27.314 10 28.028 10 28.4166 10.4743C28.805 10.9487 28.6836 11.6724 28.4411 13.1197L26.8363 22.6925C26.3044 25.8655 26.0384 27.4519 24.9526 28.3927C23.8668 29.3333 22.3015 29.3333 19.1711 29.3333H12.8293C9.69878 29.3333 8.13354 29.3333 7.0477 28.3927C5.96186 27.4519 5.69591 25.8655 5.16402 22.6925Z"
             stroke="#F6F5FD"
-            stroke-width="2.5"
+            strokeWidth="2.5"
           />
           <path
             d="M23.3332 10C23.3332 5.94993 20.05 2.66669 15.9998 2.66669C11.9497 2.66669 8.6665 5.94993 8.6665 10"
@@ -229,9 +389,7 @@ export default function DetailHero({ product }) {
             strokeWidth="2.5"
           />
         </svg>
-       <p className="text-[13px] leading-4  text-white w-[40px]">
-       Your bag 0
-       </p>
+        <p className="text-[13px] leading-4  text-white w-[40px]">Your bag 0</p>
       </div>
     </div>
   );

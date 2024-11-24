@@ -1,20 +1,16 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { CgMenuLeft } from "react-icons/cg";
-
-import { FaBasketShopping, FaUser } from "react-icons/fa6";
-import { CiSearch, CiDeliveryTruck } from "react-icons/ci";
 import { MdClose } from "react-icons/md";
 import { IoBagOutline } from "react-icons/io5";
-
 import { FiChevronDown } from "react-icons/fi";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
-
+  const cartData = JSON.parse(localStorage.getItem("cart") || "[]");
+  // console.log("card item", cartData?.length)
   const navMenuList = [
     { id: 1, menuItem: "Home", href: "/" },
     { id: 2, menuItem: "Shop", href: "/" },
@@ -229,7 +225,7 @@ export default function Navbar() {
                 <li className="relative">
                   <IoBagOutline color="#000" size={25} />
                   <p className="absolute text-[12px] -right-2 -top-[2px] bg-black w-[18px] h-[18px] text-center text-wrap rounded-full">
-                    0
+                    {cartData?.length}
                   </p>
                 </li>
               </ul>
@@ -258,65 +254,7 @@ export default function Navbar() {
                       </Link>
                     </li>
                   ))}
-                </ul>
-                {/* <ul className="mt-3 flex gap-3">
-                  <li className="flex items-center gap-3 bg-[#FFF] rounded-[28px] px-3 py-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="17"
-                      viewBox="0 0 16 17"
-                      fill="none"
-                    >
-                      <path
-                        d="M11.6667 12.1666L14.6667 15.1666"
-                        stroke="#1D1D1D"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M13.3333 7.83337C13.3333 4.51967 10.647 1.83337 7.33325 1.83337C4.01955 1.83337 1.33325 4.51967 1.33325 7.83337C1.33325 11.1471 4.01955 13.8334 7.33325 13.8334C10.647 13.8334 13.3333 11.1471 13.3333 7.83337Z"
-                        stroke="#1D1D1D"
-                        strokeWidth="1.5"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <input
-                      type="search"
-                      placeholder="Search"
-                      className="bg-transparent text-sm outline-none text-[#1D1D1D]"
-                    />
-                  </li>
-                  <li>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      fill="none"
-                    >
-                      <path
-                        d="M6.57757 15.9816C5.1628 16.824 1.45336 18.5441 3.71266 20.6966C4.81631 21.748 6.04549 22.5 7.59087 22.5H16.4091C17.9545 22.5 19.1837 21.748 20.2873 20.6966C22.5466 18.5441 18.8372 16.824 17.4224 15.9816C14.1048 14.0061 9.89519 14.0061 6.57757 15.9816Z"
-                        stroke="#1D1D1D"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M16.5 7C16.5 9.48528 14.4853 11.5 12 11.5C9.51472 11.5 7.5 9.48528 7.5 7C7.5 4.51472 9.51472 2.5 12 2.5C14.4853 2.5 16.5 4.51472 16.5 7Z"
-                        stroke="#1D1D1D"
-                        strokeWidth="1.5"
-                      />
-                    </svg>
-                  </li>
-                  <li className="relative">
-                    <IoBagOutline color="#000" size={25} />
-                    <p className="absolute text-[12px] -right-2 -top-[2px] bg-black w-[18px] h-[18px] text-center text-wrap rounded-full">
-                      0
-                    </p>
-                  </li>
-                </ul> */}
+                </ul>              
               </div>
             </div>
           )}
