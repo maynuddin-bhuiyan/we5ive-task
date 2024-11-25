@@ -9,8 +9,14 @@ import { FiChevronDown } from "react-icons/fi";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
-  const cartData = JSON.parse(localStorage.getItem("cart") || "[]");
+  const [cartData, setCartData] = useState([]);
   // console.log("card item", cartData?.length)
+  useEffect(() => {
+    // Ensure this runs only on the client side
+    const storedCartData = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCartData(storedCartData);
+  }, []);
+
   const navMenuList = [
     { id: 1, menuItem: "Home", href: "/" },
     { id: 2, menuItem: "Shop", href: "/" },
